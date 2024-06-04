@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personajes en MTA:SA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Personajes en MTA:SA</h2>
+        <ul id="characterList"></ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var characters = JSON.parse(localStorage.getItem('characters'));
+            var characterList = document.getElementById('characterList');
+            characters.forEach(character => {
+                var li = document.createElement('li');
+                li.textContent = character;
+                characterList.appendChild(li);
+            });
+        });
+    </script>
+</body>
+</html>
